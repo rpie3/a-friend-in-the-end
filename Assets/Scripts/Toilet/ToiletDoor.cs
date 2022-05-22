@@ -10,6 +10,7 @@ namespace Toilet {
         {
             if (other.CompareTag("Player"))
             {   
+                GameController.control.lastScene = "Toilet";
                 SceneManager.LoadScene(sceneName: "MainRoom");
             }
         }

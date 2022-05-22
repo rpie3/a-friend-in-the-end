@@ -10,6 +10,7 @@ namespace MainRoom {
         {
             if (other.CompareTag("Player"))
             {   
+                GameController.control.lastScene = "MainRoom";
                 SceneManager.LoadScene(sceneName: "EtherealRoad");
             }
         }

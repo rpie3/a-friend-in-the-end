@@ -10,6 +10,7 @@ namespace Kitchen {
         {
             if (other.CompareTag("Player"))
             {   
+                GameController.control.lastScene = "Kitchen";
                 SceneManager.LoadScene(sceneName: "MainRoom");
             }
         }

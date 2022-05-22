@@ -10,6 +10,7 @@ namespace SunRoom {
         {
             if (other.CompareTag("Player"))
             {   
+                GameController.control.lastScene = "SunRoom";
                 SceneManager.LoadScene(sceneName: "MainRoom");
             }
         }
