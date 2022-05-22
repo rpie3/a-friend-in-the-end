@@ -21,5 +21,7 @@ public class LightPost : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("You pressed light post button.");
+        DialogCanvas.Instance.dialogBox.setDialogText("ZAP!");
+        DialogCanvas.Instance.dialogBox.openDialog();
     }
 }

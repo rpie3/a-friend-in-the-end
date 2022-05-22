@@ -81,4 +81,9 @@ public class PlayerMovement : MonoBehaviour
         // anim.SetFloat("AnimLastMoveX", lastMoveDirection.x);
         // anim.SetFloat("AnimLastMoveY", lastMoveDirection.y);
     }
+
+    public void PushUpwards()
+    {
+        rb.position =  new Vector2(rb.position.x, rb.position.y + 2);
+    }
 }

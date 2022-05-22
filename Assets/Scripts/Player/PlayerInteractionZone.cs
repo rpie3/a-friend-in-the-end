@@ -37,7 +37,7 @@ public class PlayerInteractionZone : MonoBehaviour
     }
 
     void ProcessInputs() {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.F))
         {
             if (interactable != null) 
             {
