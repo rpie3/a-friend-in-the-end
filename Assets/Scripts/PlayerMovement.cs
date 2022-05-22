@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastMoveDirection;
     PixelPerfectClamp clamper = new PixelPerfectClamp();
 
+    // live interaction zone switching
+    [SerializeField] GameObject interactUp;
+    [SerializeField] GameObject interactDown;
+    [SerializeField] GameObject interactLeft;
+    [SerializeField] GameObject interactRight;
+
     void Update()
     {
         ProcessInputs();
@@ -27,6 +33,33 @@ public class PlayerMovement : MonoBehaviour
 
         if ((moveX == 0 && moveY == 0) && moveDirection.x !=0 || moveDirection.y != 0) {
             lastMoveDirection = moveDirection;
+        }
+
+        
+
+        if (moveDirection.x == 1.00) {
+            interactUp.SetActive(false);
+            interactDown.SetActive(false);
+            interactLeft.SetActive(false);
+            interactRight.SetActive(true);
+        }
+        if (moveDirection.x == -1.00) {
+            interactUp.SetActive(false);
+            interactDown.SetActive(false);
+            interactLeft.SetActive(true);
+            interactRight.SetActive(false);
+        }
+        if (moveDirection.y == 1.00) {
+            interactUp.SetActive(true);
+            interactDown.SetActive(false);
+            interactLeft.SetActive(false);
+            interactRight.SetActive(false);
+        }
+        if (moveDirection.y == -1.00) {
+            interactUp.SetActive(false);
+            interactDown.SetActive(true);
+            interactLeft.SetActive(false);
+            interactRight.SetActive(false);
         }
 
         moveDirection = new Vector2(moveX, moveY);
