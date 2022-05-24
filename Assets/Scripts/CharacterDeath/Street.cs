@@ -8,7 +8,7 @@ public class Street : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DialogCanvas.Instance.dialogBox.setDialogText("It's way too busy to cross right now!");
+            DialogCanvas.Instance.dialogBox.setDialogText("You can't cross here!");
             DialogCanvas.Instance.dialogBox.openDialog();
             other.gameObject.GetComponent<PlayerMovement>().PushUpwards();
         }

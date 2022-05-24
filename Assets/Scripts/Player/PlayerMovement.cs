@@ -68,8 +68,8 @@ public class PlayerMovement : MonoBehaviour
     void Move() {
         // rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         Vector2 movement =  new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-        Vector2 move = clamper.Clamp(movement * Time.fixedDeltaTime, 8);
-        Vector2 oldLocation = clamper.Clamp(rb.position, 8);
+        Vector2 move = clamper.Clamp(movement * Time.fixedDeltaTime, 16);
+        Vector2 oldLocation = clamper.Clamp(rb.position, 16);
 
         rb.MovePosition(oldLocation + move);
     }
