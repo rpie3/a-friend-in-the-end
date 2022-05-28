@@ -40,4 +40,12 @@ public class DustPile : MonoBehaviour, IInteractable
     {
 
     }
+
+    public void Start()
+    {
+        if (GameController.control.sweepablesCompleted)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

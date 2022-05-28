@@ -7,6 +7,7 @@ namespace MainRoom {
     {
         [Header("GameObject References")]
         [SerializeField] public GameObject player;
+        [SerializeField] public GameObject spiderCam;
 
         [Header("Exit & Entrance References")]
         [SerializeField] public GameObject frontDoor;
@@ -32,10 +33,17 @@ namespace MainRoom {
                 GameController.control.sweepablesCompleted == false
             ) {
                 GameController.control.sweepablesCompleted = true;
-                // onAllFlowersWatered.Invoke();
-                // houseCam.SetActive(true);
-                // StartCoroutine(OpenDoor());
+                spiderCam.SetActive(true);
+                StartCoroutine(SpiderDialogue());
             }
+        }
+
+        IEnumerator SpiderDialogue()
+        {
+            yield return new WaitForSeconds(3);
+            DialogCanvas.Instance.dialogBox.setDialogText("Thanks for cleaning, but... You swept up all the webs... Now how will the spiders eat?");
+            DialogCanvas.Instance.dialogBox.openDialog();
+            spiderCam.SetActive(false);
         }
 
         private void spawnPlayerInsideFrontDoor()
