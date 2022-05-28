@@ -50,7 +50,7 @@ namespace MainRoom {
 
         private void spawnPlayerInsideStaircase()
         {
-            player.transform.position = new Vector2(staircase.transform.position.x, staircase.transform.position.y - 2);
+            player.transform.position = new Vector2(staircase.transform.position.x, staircase.transform.position.y - 3.5);
         }
 
         private void spawnPlayerInsideKitchenDoor()
