@@ -251,7 +251,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1054242844}
   frontDoor: {fileID: 1691602308}
-  numberOfFlowersToWater: 14
+  reaper: {fileID: 1325569559}
+  onAllFlowersWatered:
+    m_PersistentCalls:
+      m_Calls: []
+  numberOfFlowersToWater: 12
+  numberOfFlowersWatered: 0
 --- !u!4 &82219095
 Transform:
   m_ObjectHideFlags: 0
@@ -1152,7 +1157,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.5206186, y: 1}
+    m_SensorSize: {x: 1.6426941, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1928,7 +1933,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.12551212}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1939,7 +1944,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.74897575}
   m_EdgeRadius: 0
 --- !u!1 &2105273067
 GameObject:
