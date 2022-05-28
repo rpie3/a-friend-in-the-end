@@ -14,6 +14,10 @@ public class GameController : MonoBehaviour
     public bool outdoorFlowersWatered = false;
     public bool playerHasMetReaper = false;
 
+    [Header("Main Room Scene Data")]
+    public bool playerHasBroom = false;
+    public bool sweepablesCompleted = false;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
