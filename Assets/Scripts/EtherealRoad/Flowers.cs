@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Flowers : MonoBehaviour, IInteractable
 {
+    [SerializeField] EtherealRoad.LevelManager levelManager;
     [SerializeField] Animator animator;
 
     public void Interact()
@@ -11,8 +12,7 @@ public class Flowers : MonoBehaviour, IInteractable
         if (GameController.control.playerHasWateringCan)
         {
             animator.SetBool("hasBeenWatered", true);
-            GameController.control.numberOfFlowersWatered++;
-            GameController.control.CheckIfLastFlower();
+            levelManager.OnFlowerWatered();
         }
         else
         {
