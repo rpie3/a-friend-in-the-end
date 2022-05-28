@@ -8,8 +8,10 @@ namespace EtherealRoad {
     {
         [Header("GameObject References")]
         [SerializeField] public GameObject player;
-        [SerializeField] public GameObject frontDoor;
         [SerializeField] public GameObject reaper;
+        [SerializeField] public House house;
+        [SerializeField] public FrontDoor frontDoor;
+        [SerializeField] public GameObject houseCam;
         
         [Header("Flower Tracking")]
         [SerializeField] UnityEvent onAllFlowersWatered;
@@ -30,8 +32,49 @@ namespace EtherealRoad {
             ) {
                 GameController.control.outdoorFlowersWatered = true;
                 onAllFlowersWatered.Invoke();
-                reaper.SetActive(true);
+                houseCam.SetActive(true);
+                StartCoroutine(OpenDoor());
             }
+        }
+
+        IEnumerator OpenDoor()
+        {
+            yield return new WaitForSeconds(3);
+            house.OpenDoor();
+            StartCoroutine(InitiateReaperAppearance());
+        }
+
+        IEnumerator InitiateReaperAppearance()
+        {
+            yield return new WaitForSeconds(1);
+            reaper.SetActive(true);
+
+            DialogCanvas.Instance.dialogBox.setDialogText("Oh hey... Didn't realize I was supposed to come get you... etc...");
+            DialogCanvas.Instance.dialogBox.openDialog();
+            StartCoroutine(ReaperDialogLine2());
+        }
+
+        IEnumerator ReaperDialogLine2()
+        {
+            yield return new WaitForSeconds(3);
+            DialogCanvas.Instance.dialogBox.setDialogText("Thanks for doing that... Haven't felt like myself in a while... etc...");
+            DialogCanvas.Instance.dialogBox.openDialog();
+            StartCoroutine(ReaperDialogLine3());
+        }
+
+        IEnumerator ReaperDialogLine3()
+        {
+            yield return new WaitForSeconds(3);
+            DialogCanvas.Instance.dialogBox.setDialogText("Come on in if you want...");
+            DialogCanvas.Instance.dialogBox.openDialog();
+            StartCoroutine(ReaperLeaves());
+        }
+
+        IEnumerator ReaperLeaves()
+        {
+            yield return new WaitForSeconds(3);
+            reaper.SetActive(false);
+            frontDoor.isFrontDoorLocked = false;
         }
 
         private void spawnPlayerOutsideFrontDoor()

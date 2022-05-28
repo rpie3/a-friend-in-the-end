@@ -9,12 +9,19 @@ public class Flowers : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (GameController.control.playerHasWateringCan)
-        {
+        if (
+            GameController.control.playerHasWateringCan && 
+            !animator.GetBool("hasBeenWatered")
+        ) {
             animator.SetBool("hasBeenWatered", true);
             levelManager.OnFlowerWatered();
+        } 
+        else if (animator.GetBool("hasBeenWatered"))
+        {
+            DialogCanvas.Instance.dialogBox.setDialogText("They're looking great now!");
+            DialogCanvas.Instance.dialogBox.openDialog();
         }
-        else
+        else 
         {
             DialogCanvas.Instance.dialogBox.setDialogText("Seems like they haven't been watered in a while...");
             DialogCanvas.Instance.dialogBox.openDialog();
