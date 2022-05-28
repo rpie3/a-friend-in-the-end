@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 namespace EtherealRoad {
     public class FrontDoor : MonoBehaviour
     {
-        [SerializeField] public bool isFrontDoorLocked = false;
+        [SerializeField] public bool isFrontDoorLocked = true;
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -25,7 +25,8 @@ namespace EtherealRoad {
             }
             else
             {
-                Debug.Log("Dialog system: The door is locked.");
+                DialogCanvas.Instance.dialogBox.setDialogText("The door is locked.");
+                DialogCanvas.Instance.dialogBox.openDialog();
             }
         }
     }

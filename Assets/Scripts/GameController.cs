@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    //Static reference
     public static GameController control;
 
-    //Data to persist
+    [Header("Global Data")]
     public string lastScene;
+
+    [Header("Ethereal Road Scene Data")]
+    [SerializeField] public bool playerHasWateringCan = false;
+    [SerializeField] public bool outdoorFlowersWatered = false;
+    public int numberOfFlowersToWater = 1;
+    public int numberOfFlowersWatered = 0;
+
+    public void CheckIfLastFlower()
+    {
+        if (numberOfFlowersWatered >= numberOfFlowersToWater)
+        {
+            outdoorFlowersWatered = true;
+            // trigger grim reapear coming out of house
+        }
+    }
 
     void Awake()
     {
-        //Let the gameobject persist over the scenes
         DontDestroyOnLoad(gameObject);
-        //Check if the control instance is null
         if (control == null)
         {
-            //This instance becomes the single instance available
             control = this;
         }
-        //Otherwise check if the control instance is not this one
         else if (control != this)
         {
-            //In case there is a different instance destroy this one.
             Destroy(gameObject);
         }
     }
