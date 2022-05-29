@@ -21,6 +21,11 @@ public class GameController : MonoBehaviour
     [Header("Sun Room Scene Data")]
     public bool indoorFlowersWatered = false;
 
+    [Header("Kitchen Scene Data")]
+    public bool sandwichIngredientsCollected = false;
+    public bool playerHasSandwich = false;
+    public bool reaperHasReceivedSandwich = false;
+
     [Header("Flies Tracking")]
     public bool playerHasJar = false;
     public bool fliesCompleted = false;
