@@ -18,6 +18,48 @@ public class GameController : MonoBehaviour
     public bool playerHasBroom = false;
     public bool sweepablesCompleted = false;
 
+    [Header("Flies Tracking")]
+    public bool playerHasJar = false;
+    public bool fliesCompleted = false;
+
+    public Dictionary<string, bool> flyTracker = new Dictionary<string, bool>() {
+        {"first", false},
+        {"second", false},
+        {"third", false},
+        {"fourth", false},
+        {"last", false},
+    };
+
+    public bool SecondToLastFlyCaught()
+    {
+        if (
+            flyTracker["first"] &&
+            flyTracker["second"] &&
+            flyTracker["third"] &&
+            flyTracker["fourth"] &&
+            !flyTracker["last"]
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    public void onFlyCaught(string dictionaryKey)
+    {
+        flyTracker[dictionaryKey] = true;
+
+        if (SecondToLastFlyCaught())
+        {
+            DialogCanvas.Instance.dialogBox.setDialogText("If you can get one more, the spiders should have enough to eat...");
+            DialogCanvas.Instance.dialogBox.openDialog();
+        }
+
+        if (dictionaryKey == "last")
+        {
+            fliesCompleted = true;
+        }
+    }
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
