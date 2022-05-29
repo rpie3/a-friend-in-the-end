@@ -22,6 +22,7 @@ namespace EtherealRoad {
             if (!isFrontDoorLocked)
             {
                 GameController.control.lastScene = "EtherealRoad";
+                MusicManager.Instance.FadeTunnel(); 
                 SceneManager.LoadScene(sceneName: "MainRoom");
             }
             else

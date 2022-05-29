@@ -72,6 +72,11 @@ namespace MainRoom {
 
         void Start()
         {
+            if (!MusicManager.Instance.IsHouseMusicPlaying())
+            {
+                MusicManager.Instance.PlayHouse();      
+            } 
+
             // Debug.Log("MainRoom LevelManager shows lastScene as " + GameController.control.lastScene);
             if (GameController.control.lastScene == "EtherealRoad")
             {

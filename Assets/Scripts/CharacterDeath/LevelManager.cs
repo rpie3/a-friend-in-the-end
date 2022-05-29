@@ -7,7 +7,7 @@ namespace CharacterDeath {
     {
         void Start()
         {
-            
+            MusicManager.Instance.PlayGrasslandTheme();
         }
     }
 }

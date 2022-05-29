@@ -77,6 +77,8 @@ namespace EtherealRoad {
 
         void Start()
         {
+            MusicManager.Instance.PlayTunnel();
+            
             if (GameController.control.lastScene == "MainRoom")
             {
                 spawnPlayerOutsideFrontDoor();

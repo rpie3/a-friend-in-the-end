@@ -7,11 +7,13 @@ public class MainMenuUI : MonoBehaviour
 {
     public void StartGame()
     {
+        MusicManager.Instance.FadeTitleMusic();
         SceneManager.LoadScene(sceneName: "CharacterDeath");
     }
 
     void Start()
     {
+        MusicManager.Instance.PlayTitleMusic();
         GameController.control.ResetAllFields();
     }
 }

@@ -11,6 +11,8 @@ namespace MainRoom {
             if (other.CompareTag("Player"))
             {   
                 GameController.control.lastScene = "MainRoom";
+                MusicManager.Instance.FadeHouseWithIntro();
+                MusicManager.Instance.FadeHouseNoIntro();
                 SceneManager.LoadScene(sceneName: "EtherealRoad");
             }
         }

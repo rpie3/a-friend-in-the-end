@@ -8,6 +8,7 @@ public class LightPost : MonoBehaviour, IInteractable
     [SerializeField] SpriteRenderer playerSpriteRenderer;
     [SerializeField] GameObject deadPlayer;
     [SerializeField] GameObject portal;
+    [SerializeField] AudioSource electrocutionSource;
 
     public void ShowHint()
     {
@@ -24,6 +25,9 @@ public class LightPost : MonoBehaviour, IInteractable
         interactionHint.SetActive(false);
 
         // TODO play zapping animation
+        MusicManager.Instance.FadeGrasslandTheme();
+        MusicManager.Instance.FadeGrasslandThemeLoop();
+        electrocutionSource.Play();
 
         // TODO show or instantiate dead player sprite
         deadPlayer.SetActive(true);
@@ -33,11 +37,20 @@ public class LightPost : MonoBehaviour, IInteractable
         
         // TODO portal appears
         StartCoroutine(InitiatePortalAppearance());
+
+        StartCoroutine(WaitForElectrocutionSound());
+        
     }
 
     IEnumerator InitiatePortalAppearance()
     {
         yield return new WaitForSeconds(5);
         portal.SetActive(true);
+    }
+
+    IEnumerator WaitForElectrocutionSound()
+    {
+        yield return new WaitForSeconds(5);
+        MusicManager.Instance.PlayGrasslandThemeDead();
     }
 }

@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            MusicManager.Instance.FadeGrasslandThemeDead();
             SceneManager.LoadScene(sceneName: "EtherealRoad");
         }
     }
