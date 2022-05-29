@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Flowers : MonoBehaviour, IInteractable
 {
     [SerializeField] EtherealRoad.LevelManager levelManager;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource audioSource;
 
     public void Interact()
     {
@@ -14,6 +16,7 @@ public class Flowers : MonoBehaviour, IInteractable
             !animator.GetBool("hasBeenWatered")
         ) {
             animator.SetBool("hasBeenWatered", true);
+            audioSource.Play();
             levelManager.OnFlowerWatered();
         } 
         else if (animator.GetBool("hasBeenWatered"))
