@@ -5,9 +5,11 @@ using UnityEngine;
 public class House : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource doorOpenSource;
 
     public void OpenDoor()
     {
+        doorOpenSource.Play();
         animator.SetBool("doorHasOpened", true);
     }
 

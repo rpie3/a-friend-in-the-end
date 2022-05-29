@@ -7,6 +7,7 @@ namespace EtherealRoad {
     public class FrontDoor : MonoBehaviour
     {
         [SerializeField] public bool isFrontDoorLocked = true;
+        [SerializeField] AudioSource doorKnockSource;
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -25,6 +26,7 @@ namespace EtherealRoad {
             }
             else
             {
+                doorKnockSource.Play();
                 DialogCanvas.Instance.QueueDialog("The door is locked.");
             }
         }
