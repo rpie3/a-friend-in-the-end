@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Broom : MonoBehaviour, IInteractable
 {
+    [SerializeField] AudioSource foundItem;
+
     public void Interact()
     {
         GameController.control.playerHasBroom = true;
+        foundItem.Play();
         DialogCanvas.Instance.QueueDialog("I picked up a BROOM!");
         gameObject.SetActive(false);
     }

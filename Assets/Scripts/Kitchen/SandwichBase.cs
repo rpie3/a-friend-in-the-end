@@ -5,6 +5,7 @@ using UnityEngine;
 public class SandwichBase : MonoBehaviour, IInteractable
 {
     [SerializeField] Kitchen.LevelManager levelManager;
+    [SerializeField] AudioSource foundItem;
 
     public void Interact()
     {
@@ -12,6 +13,7 @@ public class SandwichBase : MonoBehaviour, IInteractable
             GameController.control.sandwichIngredientsCollected && 
             !GameController.control.playerHasSandwich
         ) {
+            foundItem.Play();
             DialogCanvas.Instance.QueueDialog("I've assembled a NICE SANDWICH!");
             levelManager.OnSandwichAssembled();
         } 
