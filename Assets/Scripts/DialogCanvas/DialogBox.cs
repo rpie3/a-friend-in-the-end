@@ -5,7 +5,7 @@ using TMPro;
 
 public class DialogBox : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
     [SerializeField] TextMeshProUGUI text;
 
     public void openDialog()

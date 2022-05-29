@@ -8,6 +8,11 @@ public class DialogCanvas : MonoBehaviour
 
     [SerializeField] public DialogBox dialogBox;
 
+    public bool IsDialogShowing()
+    {
+        return dialogBox.animator.GetBool("dialogIsOpen") == true;
+    }
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);

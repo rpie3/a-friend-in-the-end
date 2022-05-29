@@ -24,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        Move();
+        if (!DialogCanvas.Instance.IsDialogShowing()) {
+            Move();
+        }
     }
 
     void ProcessInputs() {
@@ -33,9 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         if ((moveX == 0 && moveY == 0) && moveDirection.x !=0 || moveDirection.y != 0) {
             lastMoveDirection = moveDirection;
-        }
-
-        
+        }       
 
         if (moveDirection.x == 1.00) {
             interactUp.SetActive(false);
