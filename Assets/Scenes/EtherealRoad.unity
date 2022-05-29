@@ -254,6 +254,7 @@ MonoBehaviour:
   house: {fileID: 119110778}
   frontDoor: {fileID: 1691602311}
   houseCam: {fileID: 208905453}
+  gate: {fileID: 128042868}
   onAllFlowersWatered:
     m_PersistentCalls:
       m_Calls: []

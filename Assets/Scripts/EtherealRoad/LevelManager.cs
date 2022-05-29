@@ -12,6 +12,7 @@ namespace EtherealRoad {
         [SerializeField] public House house;
         [SerializeField] public FrontDoor frontDoor;
         [SerializeField] public GameObject houseCam;
+        [SerializeField] public GameObject gate;
         
         [Header("Flower Tracking")]
         [SerializeField] UnityEvent onAllFlowersWatered;
@@ -82,11 +83,23 @@ namespace EtherealRoad {
             player.transform.position = new Vector2(frontDoor.transform.position.x, frontDoor.transform.position.y - 2);
         }
 
+        private void spawnPlayerAndReaperByGate()
+        {
+            player.transform.position = new Vector2(gate.transform.position.x - 1, gate.transform.position.y + 2);
+            reaper.SetActive(true);
+            reaper.transform.position = new Vector2(gate.transform.position.x + 1, gate.transform.position.y + 2);
+        }
+
         void Start()
         {
             if (GameController.control.lastScene == "MainRoom")
             {
                 spawnPlayerOutsideFrontDoor();
+            }
+
+            if (GameController.control.lastScene == "Bedroom")
+            {
+                spawnPlayerAndReaperByGate();
             }
 
             if (GameController.control.outdoorFlowersWatered)
