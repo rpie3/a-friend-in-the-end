@@ -30,6 +30,9 @@ public class GameController : MonoBehaviour
     public bool playerHasJar = false;
     public bool fliesCompleted = false;
 
+    [Header("End Game Info")]
+    public bool reaperHasOpenedGate = false;
+
     public Dictionary<string, bool> flyTracker = new Dictionary<string, bool>() {
         {"first", false},
         {"second", false},

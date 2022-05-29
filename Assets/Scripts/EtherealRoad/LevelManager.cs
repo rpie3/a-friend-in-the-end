@@ -88,6 +88,9 @@ namespace EtherealRoad {
             player.transform.position = new Vector2(gate.transform.position.x - 1, gate.transform.position.y + 2);
             reaper.SetActive(true);
             reaper.transform.position = new Vector2(gate.transform.position.x + 1, gate.transform.position.y + 2);
+            gate.SetActive(false);
+            GameController.control.lastScene = "EtherealRoad";
+            GameController.control.reaperHasOpenedGate = true;
         }
 
         void Start()
