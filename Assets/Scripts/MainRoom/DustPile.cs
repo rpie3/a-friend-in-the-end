@@ -5,6 +5,7 @@ using UnityEngine;
 public class DustPile : MonoBehaviour, IInteractable
 {
     [SerializeField] MainRoom.LevelManager levelManager;
+    [SerializeField] AudioSource sweepSource;
     private bool hasBeenSwept = false;
 
     public void Interact()
