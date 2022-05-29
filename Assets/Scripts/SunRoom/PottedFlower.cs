@@ -6,6 +6,7 @@ public class PottedFlower : MonoBehaviour, IInteractable
 {
     [SerializeField] SunRoom.LevelManager levelManager;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource growSource;
 
     public void Interact()
     {
@@ -14,6 +15,7 @@ public class PottedFlower : MonoBehaviour, IInteractable
             // && !animator.GetBool("hasBeenWatered")
         ) {
             // animator.SetBool("hasBeenWatered", true);
+            growSource.Play();
             levelManager.OnFlowerWatered();
         } 
         // else if (animator.GetBool("hasBeenWatered"))
