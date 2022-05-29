@@ -9,4 +9,9 @@ public class MainMenuUI : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: "CharacterDeath");
     }
+
+    void Start()
+    {
+        GameController.control.ResetAllFields();
+    }
 }

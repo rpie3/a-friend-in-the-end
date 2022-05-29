@@ -68,6 +68,7 @@ namespace EtherealRoad {
             yield return new WaitForSeconds(3);
             DialogCanvas.Instance.dialogBox.setDialogText("Come on in if you want...");
             DialogCanvas.Instance.dialogBox.openDialog();
+            GameController.control.playerHasMetReaper = true;
             StartCoroutine(ReaperLeaves());
         }
 
@@ -108,6 +109,11 @@ namespace EtherealRoad {
             if (GameController.control.outdoorFlowersWatered)
             {
                 numberOfFlowersWatered = numberOfFlowersToWater;
+            }
+
+            if (GameController.control.playerHasMetReaper)
+            {
+                frontDoor.isFrontDoorLocked = false;
             }
         }
     }

@@ -18,12 +18,14 @@ public class HouseEndTrigger : MonoBehaviour
         ) {   
             DialogCanvas.Instance.dialogBox.setDialogText("You don't want to pass on? You want to stay and hang out with me? That's so great!!!");
             DialogCanvas.Instance.dialogBox.openDialog();
+            StartCoroutine(EndGame());
         }
     }
 
     IEnumerator EndGame()
     {
         yield return new WaitForSeconds(3);
+        DialogCanvas.Instance.dialogBox.closeDialog();
         SceneManager.LoadScene(sceneName: "EndCredits");
     }
 }

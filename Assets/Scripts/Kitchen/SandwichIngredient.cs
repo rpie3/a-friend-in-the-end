@@ -22,4 +22,13 @@ public class SandwichIngredient : MonoBehaviour, IInteractable
 
     }
 
+    public void Start()
+    {
+        if (
+            GameController.control.reaperHasReceivedSandwich
+        ) {
+            gameObject.SetActive(false);
+        }
+    }
+
 }

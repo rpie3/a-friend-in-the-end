@@ -36,8 +36,6 @@ public class SandwichBase : MonoBehaviour, IInteractable
     public void Start()
     {
         if (
-            GameController.control.sandwichIngredientsCollected &&
-            GameController.control.playerHasSandwich &&
             GameController.control.reaperHasReceivedSandwich
         ) {
             gameObject.SetActive(false);

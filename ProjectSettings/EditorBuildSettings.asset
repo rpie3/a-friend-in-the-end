@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Toilet.unity
     guid: f4e64517bc1d34ea99c125e0c69dfaae
+  - enabled: 1
+    path: Assets/Scenes/EndCredits.unity
+    guid: 5ff54ed9c376f4683bcf21c149af17e0
   m_configObjects: {}

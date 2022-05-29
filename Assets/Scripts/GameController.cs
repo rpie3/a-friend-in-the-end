@@ -71,6 +71,34 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void ResetAllFields()
+    {
+        lastScene = "";
+        playerHasWateringCan = false;
+        outdoorFlowersWatered = false;
+        playerHasMetReaper = false;
+
+        playerHasBroom = false;
+        sweepablesCompleted = false;
+
+        indoorFlowersWatered = false;
+
+        sandwichIngredientsCollected = false;
+        playerHasSandwich = false;
+        reaperHasReceivedSandwich = false;
+
+        playerHasJar = false;
+        fliesCompleted = false;
+
+        reaperHasOpenedGate = false;
+
+        flyTracker["first"] = false;
+        flyTracker["second"] = false;
+        flyTracker["third"] = false;
+        flyTracker["fourth"] = false;
+        flyTracker["last"] = false;
+    }
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
