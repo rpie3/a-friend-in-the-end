@@ -258,7 +258,7 @@ MonoBehaviour:
   onAllFlowersWatered:
     m_PersistentCalls:
       m_Calls: []
-  numberOfFlowersToWater: 12
+  numberOfFlowersToWater: 10
   numberOfFlowersWatered: 0
 --- !u!4 &82219095
 Transform:
@@ -819,11 +819,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 195381848032589194, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 195381848032589194, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.5
+      value: -24.5
       objectReference: {fileID: 0}
     - target: {fileID: 195381848032589194, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1075,6 +1075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PinkFlowers (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3416981145810137593, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
 --- !u!1001 &862101903
@@ -1196,6 +1200,10 @@ PrefabInstance:
     - target: {fileID: 195381848032589199, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
       propertyPath: m_Name
       value: OrangeFlowers (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195381848032589199, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
@@ -1400,7 +1408,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.5498939, y: 1}
+    m_SensorSize: {x: 1.8046972, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1911,11 +1919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -25.5
+      value: -26.5
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5475,11 +5483,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.5
+      value: 19.5
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5654,7 +5662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5723,7 +5731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5385670102675274541, guid: 9f96a664f41c845c99f5f308f9f19cfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5385670102675274541, guid: 9f96a664f41c845c99f5f308f9f19cfd, type: 3}
       propertyPath: m_LocalPosition.y
