@@ -8,8 +8,8 @@ public class Street : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DialogCanvas.Instance.dialogBox.setDialogText("You can't cross here!");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("I can't cross here!");
+            DialogCanvas.Instance.QueueDialog("I should look for a crosswalk...");                
         }
     }
 }

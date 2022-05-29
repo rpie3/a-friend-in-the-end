@@ -61,8 +61,7 @@ public class GameController : MonoBehaviour
 
         if (SecondToLastFlyCaught())
         {
-            DialogCanvas.Instance.dialogBox.setDialogText("If you can get one more, the spiders should have enough to eat...");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("If you can get one more, the spiders should have enough to eat...");
         }
 
         if (dictionaryKey == "last")

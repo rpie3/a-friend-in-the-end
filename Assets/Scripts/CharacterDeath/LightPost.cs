@@ -11,30 +11,27 @@ public class LightPost : MonoBehaviour, IInteractable
 
     public void ShowHint()
     {
-        // Debug.Log("Present Interaction Option");
         interactionHint.SetActive(true);
     }
 
     public void HideHint()
     {
-        // Debug.Log("Hide Interaction Option");
         interactionHint.SetActive(false);
     }
 
     public void Interact()
     {
-        Debug.Log("You pressed light post button.");
         interactionHint.SetActive(false);
 
-        // play zapping animation
+        // TODO play zapping animation
 
-        // show or instantiate dead player sprite
+        // TODO show or instantiate dead player sprite
         deadPlayer.SetActive(true);
 
-        // change player sprite to ghost
+        // TODO change player sprite to ghost
         playerSpriteRenderer.color = Color.blue;
         
-        // portal appears
+        // TODO portal appears
         StartCoroutine(InitiatePortalAppearance());
     }
 

@@ -41,8 +41,7 @@ namespace MainRoom {
         IEnumerator SpiderDialogue()
         {
             yield return new WaitForSeconds(3);
-            DialogCanvas.Instance.dialogBox.setDialogText("Thanks for cleaning, but... You swept up all the webs... Now how will the spiders eat?");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("Thanks for cleaning, but... You swept up all the webs... Now how will the spiders eat?");
             spiderCam.SetActive(false);
         }
 

@@ -16,8 +16,7 @@ public class HouseEndTrigger : MonoBehaviour
             GameController.control.fliesCompleted &&
             GameController.control.reaperHasOpenedGate
         ) {   
-            DialogCanvas.Instance.dialogBox.setDialogText("You don't want to pass on? You want to stay and hang out with me? That's so great!!!");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("You don't want to pass on? You want to stay and hang out with me? That's so great!!!");
             StartCoroutine(EndGame());
         }
     }
@@ -25,7 +24,7 @@ public class HouseEndTrigger : MonoBehaviour
     IEnumerator EndGame()
     {
         yield return new WaitForSeconds(3);
-        DialogCanvas.Instance.dialogBox.closeDialog();
+        DialogCanvas.Instance.CloseDialog();
         SceneManager.LoadScene(sceneName: "EndCredits");
     }
 }

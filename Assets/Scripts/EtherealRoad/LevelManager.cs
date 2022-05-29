@@ -50,33 +50,14 @@ namespace EtherealRoad {
             yield return new WaitForSeconds(1);
             reaper.SetActive(true);
 
-            DialogCanvas.Instance.dialogBox.setDialogText("Oh hey... Didn't realize I was supposed to come get you... etc...");
-            DialogCanvas.Instance.dialogBox.openDialog();
-            StartCoroutine(ReaperDialogLine2());
-        }
-
-        IEnumerator ReaperDialogLine2()
-        {
-            yield return new WaitForSeconds(3);
-            DialogCanvas.Instance.dialogBox.setDialogText("Thanks for doing that... Haven't felt like myself in a while... etc...");
-            DialogCanvas.Instance.dialogBox.openDialog();
-            StartCoroutine(ReaperDialogLine3());
-        }
-
-        IEnumerator ReaperDialogLine3()
-        {
-            yield return new WaitForSeconds(3);
-            DialogCanvas.Instance.dialogBox.setDialogText("Come on in if you want...");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("Oh hey... Didn't realize I was supposed to come get you... etc...");
+            DialogCanvas.Instance.QueueDialog("Thanks for doing that... Haven't felt like myself in a while... etc...");
+            DialogCanvas.Instance.QueueDialog("Come on in if you want...");
+            
+            // TODO add an on exit to dialog system for this action
             GameController.control.playerHasMetReaper = true;
-            StartCoroutine(ReaperLeaves());
-        }
-
-        IEnumerator ReaperLeaves()
-        {
-            yield return new WaitForSeconds(3);
-            reaper.SetActive(false);
             frontDoor.isFrontDoorLocked = false;
+            reaper.SetActive(false);
         }
 
         private void spawnPlayerOutsideFrontDoor()

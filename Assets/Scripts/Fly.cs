@@ -12,22 +12,18 @@ public class Fly : MonoBehaviour, IInteractable
             GameController.control.playerHasJar 
             && !GameController.control.flyTracker[dictionaryKey]
         ) {
-            
-            DialogCanvas.Instance.dialogBox.setDialogText("I caught a fly!");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("I caught a fly!");
             GameController.control.onFlyCaught(dictionaryKey);
             gameObject.SetActive(false);
 
             if (dictionaryKey == "last")
             {
-                DialogCanvas.Instance.dialogBox.setDialogText("Thanks for feeding the spiders!");
-                DialogCanvas.Instance.dialogBox.openDialog();
+                DialogCanvas.Instance.QueueDialog("Thanks for feeding the spiders!");
             }
         } 
         else 
         {
-            DialogCanvas.Instance.dialogBox.setDialogText("A fly? Buzz off!");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("A fly? Buzz off!");
         }
     }
     public void ShowHint()

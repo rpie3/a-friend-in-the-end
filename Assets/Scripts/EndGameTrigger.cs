@@ -9,7 +9,7 @@ public class EndGameTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {   
-            DialogCanvas.Instance.dialogBox.closeDialog();
+            DialogCanvas.Instance.CloseDialog();
             SceneManager.LoadScene(sceneName: "EndCredits");
         }
     }

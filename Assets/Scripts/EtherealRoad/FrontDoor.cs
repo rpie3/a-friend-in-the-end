@@ -25,8 +25,7 @@ namespace EtherealRoad {
             }
             else
             {
-                DialogCanvas.Instance.dialogBox.setDialogText("The door is locked.");
-                DialogCanvas.Instance.dialogBox.openDialog();
+                DialogCanvas.Instance.QueueDialog("The door is locked.");
             }
         }
     }

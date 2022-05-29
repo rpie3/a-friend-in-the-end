@@ -21,13 +21,12 @@ public class Cobweb : MonoBehaviour, IInteractable
         } 
         // else if (animator.GetBool("hasBeenWatered"))
         // {
-        //     DialogCanvas.Instance.dialogBox.setDialogText("They're looking great now!");
-        //     DialogCanvas.Instance.dialogBox.openDialog();
+        //     DialogCanvas.Instance.QueueDialog("They're looking great now!");
+        //    
         // }
         else 
         {
-            DialogCanvas.Instance.dialogBox.setDialogText("Seems like nobody has swept up in a while...");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("Seems like nobody has swept up in a while...");
         }
     }
     public void ShowHint()

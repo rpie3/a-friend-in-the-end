@@ -6,8 +6,7 @@ public class Fireplace : MonoBehaviour, IInteractable
 {
     public void Interact()
     {
-        DialogCanvas.Instance.dialogBox.setDialogText("The fire is roaring now...");
-        DialogCanvas.Instance.dialogBox.openDialog();
+        DialogCanvas.Instance.QueueDialog("The fire is roaring now...");
     }
 
     public void ShowHint()

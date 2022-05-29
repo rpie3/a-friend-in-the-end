@@ -14,14 +14,12 @@ public class ReaperInteraction : MonoBehaviour, IInteractable
             GameController.control.reaperHasReceivedSandwich &&
             GameController.control.fliesCompleted
         ) {
-            DialogCanvas.Instance.dialogBox.setDialogText("Wow, thanks for all your help! I'm sorry I've been neglecting my job. Let me help you therough the gate now.");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("Wow, thanks for all your help! I'm sorry I've been neglecting my job. Let me help you therough the gate now.");
             StartCoroutine(ExitHouse());
         }
         else 
         {
-            DialogCanvas.Instance.dialogBox.setDialogText("Hey there...");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("Hey there...");
         }
     }
 

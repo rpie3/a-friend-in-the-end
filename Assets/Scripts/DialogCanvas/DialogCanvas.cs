@@ -6,11 +6,73 @@ public class DialogCanvas : MonoBehaviour
 {
     public static DialogCanvas Instance;
 
-    [SerializeField] public DialogBox dialogBox;
+    [SerializeField] DialogBox dialogBox;
+
+    [SerializeField] List<string> dialogQueue = new List<string>(); 
+
+    public void QueueDialog(string newDialog)
+    {
+        if (dialogQueue.Count > 0) 
+        {
+            if (dialogQueue[dialogQueue.Count - 1] != newDialog)
+            {
+                dialogQueue.Add(newDialog);
+            }
+        }
+        else
+        {
+            dialogQueue.Add(newDialog);
+        }
+    }
 
     public bool IsDialogShowing()
     {
         return dialogBox.animator.GetBool("dialogIsOpen") == true;
+    }
+
+    public void CloseDialog()
+    {
+        if (IsDialogShowing())
+        {
+            dialogBox.closeDialog();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (dialogQueue.Count != 0)
+        {
+            DisplayQueuedDialog();
+        }
+        
+    }
+
+    void Update()
+    {
+        ProcessInputs();
+    }
+
+    void ProcessInputs() {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(1))
+        {
+            if (dialogQueue.Count > 0)
+            {
+                dialogQueue.RemoveAt(0);
+            }
+            if (dialogQueue.Count == 0 && IsDialogShowing())
+            {
+                dialogBox.closeDialog();
+            }
+        }
+    }
+
+    void DisplayQueuedDialog()
+    {
+        dialogBox.setDialogText(dialogQueue[0]);
+        if (!IsDialogShowing())
+        {
+            dialogBox.openDialog();
+        }
     }
 
     void Awake()

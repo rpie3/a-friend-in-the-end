@@ -7,8 +7,7 @@ public class Broom : MonoBehaviour, IInteractable
     public void Interact()
     {
         GameController.control.playerHasBroom = true;
-        DialogCanvas.Instance.dialogBox.setDialogText("I picked up a BROOM!");
-        DialogCanvas.Instance.dialogBox.openDialog();
+        DialogCanvas.Instance.QueueDialog("I picked up a BROOM!");
         gameObject.SetActive(false);
     }
 

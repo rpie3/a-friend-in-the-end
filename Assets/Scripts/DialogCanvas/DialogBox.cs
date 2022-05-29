@@ -22,19 +22,4 @@ public class DialogBox : MonoBehaviour
     {
         text.text = newText;
     }
-
-    void Update()
-    {
-        ProcessInputs();
-    }
-
-    void ProcessInputs() {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(1))
-        {
-            if (animator.GetBool("dialogIsOpen") == true) 
-            {
-                closeDialog();
-            }
-        }
-    }
 }

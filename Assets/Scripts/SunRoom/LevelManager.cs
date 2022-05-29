@@ -24,8 +24,7 @@ namespace SunRoom {
                 GameController.control.indoorFlowersWatered == false
             ) {
                 GameController.control.indoorFlowersWatered = true;
-                DialogCanvas.Instance.dialogBox.setDialogText("Thanks for watering my more exotic plants... They love the attention...");
-                DialogCanvas.Instance.dialogBox.openDialog();
+                DialogCanvas.Instance.QueueDialog("Thanks for watering my more exotic plants... They love the attention...");
             }
         }
 

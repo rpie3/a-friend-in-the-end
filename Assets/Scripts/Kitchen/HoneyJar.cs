@@ -8,12 +8,10 @@ public class HoneyJar : MonoBehaviour, IInteractable
     {
         if (GameController.control.sweepablesCompleted) {
             GameController.control.playerHasJar = true;
-            DialogCanvas.Instance.dialogBox.setDialogText("I picked up a JAR OF HONEY! This would work great for catching flies!");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("I picked up a JAR OF HONEY! This would work great for catching flies!");
             gameObject.SetActive(false);
         } else {
-            DialogCanvas.Instance.dialogBox.setDialogText("It's a JAR OF HONEY... It smells so sweet...");
-            DialogCanvas.Instance.dialogBox.openDialog();
+            DialogCanvas.Instance.QueueDialog("It's a JAR OF HONEY... It smells so sweet...");
         }
     }
 
