@@ -29,9 +29,17 @@ public class GameController : MonoBehaviour
     [Header("Flies Tracking")]
     public bool playerHasJar = false;
     public bool fliesCompleted = false;
+    public int fliesCaught = 0;
 
     [Header("End Game Info")]
     public bool reaperHasOpenedGate = false;
+
+    [Header("Fly Sounds")]
+    [SerializeField] AudioSource firstFlySource;
+    [SerializeField] AudioSource secondFlySource;
+    [SerializeField] AudioSource thirdFlySource;
+    [SerializeField] AudioSource fourthFlySource;
+    [SerializeField] AudioSource fifthFlySource;
 
     public Dictionary<string, bool> flyTracker = new Dictionary<string, bool>() {
         {"first", false},
@@ -57,7 +65,30 @@ public class GameController : MonoBehaviour
 
     public void onFlyCaught(string dictionaryKey)
     {
+        fliesCaught++; 
+
         flyTracker[dictionaryKey] = true;
+
+        if (fliesCaught == 1) 
+        {
+            firstFlySource.Play();
+        }
+        if (fliesCaught == 2) 
+        {
+            secondFlySource.Play();
+        }
+        if (fliesCaught == 3) 
+        {
+            thirdFlySource.Play();
+        }
+        if (fliesCaught == 4) 
+        {
+            fourthFlySource.Play();
+        }
+        if (fliesCaught == 5) 
+        {
+            fifthFlySource.Play();
+        }
 
         if (SecondToLastFlyCaught())
         {
