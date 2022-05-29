@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class WateringCan : MonoBehaviour, IInteractable
 {
-    [SerializeField] AudioSource foundItem;
-
     public void Interact()
     {
         GameController.control.playerHasWateringCan = true;
-        foundItem.Play();
+        GameController.control.foundItemSource.Play();
         DialogCanvas.Instance.QueueDialog("I picked up a WATERING CAN!");
         gameObject.SetActive(false);
     }

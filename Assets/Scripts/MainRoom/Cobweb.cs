@@ -5,7 +5,6 @@ using UnityEngine;
 public class Cobweb : MonoBehaviour, IInteractable
 {
     [SerializeField] MainRoom.LevelManager levelManager;
-    [SerializeField] AudioSource sweepSource;
     private bool hasBeenSwept = false;
 
     public void Interact()
@@ -17,6 +16,7 @@ public class Cobweb : MonoBehaviour, IInteractable
         ) {
             // animator.SetBool("hasBeenWatered", true);
             hasBeenSwept = true;
+            GameController.control.itemSweptSource.Play();
             levelManager.OnDustPileSwept();
             gameObject.SetActive(false);
         } 

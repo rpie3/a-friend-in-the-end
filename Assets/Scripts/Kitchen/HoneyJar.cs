@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class HoneyJar : MonoBehaviour, IInteractable
 {
-    [SerializeField] AudioSource foundItem;
-
     public void Interact()
     {
         if (GameController.control.sweepablesCompleted) {
             GameController.control.playerHasJar = true;
-            foundItem.Play();
+            GameController.control.foundItemSource.Play();
             DialogCanvas.Instance.QueueDialog("I picked up a JAR OF HONEY! This would work great for catching flies!");
             gameObject.SetActive(false);
         } else {

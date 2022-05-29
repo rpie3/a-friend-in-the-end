@@ -41,6 +41,10 @@ public class GameController : MonoBehaviour
     [SerializeField] AudioSource fourthFlySource;
     [SerializeField] AudioSource fifthFlySource;
 
+    [Header("Other Misc. Sounds")]
+    [SerializeField] public AudioSource foundItemSource;
+    [SerializeField] public AudioSource itemSweptSource;
+
     public Dictionary<string, bool> flyTracker = new Dictionary<string, bool>() {
         {"first", false},
         {"second", false},
