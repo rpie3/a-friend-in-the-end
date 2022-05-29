@@ -10,7 +10,6 @@ public class Street : MonoBehaviour
         {
             DialogCanvas.Instance.dialogBox.setDialogText("You can't cross here!");
             DialogCanvas.Instance.dialogBox.openDialog();
-            other.gameObject.GetComponent<PlayerMovement>().PushUpwards();
         }
     }
 }
