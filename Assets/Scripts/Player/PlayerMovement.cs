@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     private Vector2 moveDirection;
     private Vector2 lastMoveDirection;
+    private bool isMovementSuspended = false;
     PixelPerfectClamp clamper = new PixelPerfectClamp();
 
     [Header("Interaction Zones")]
@@ -19,14 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!DialogCanvas.Instance.IsDialogShowing()) {
-            ProcessInputs();
-            Animate();
-        }
+        
+        ProcessInputs();
+        Animate();
     }
 
     void FixedUpdate() {
-        if (!DialogCanvas.Instance.IsDialogShowing()) {
+        if (!DialogCanvas.Instance.IsDialogShowing() && !isMovementSuspended) {
             Move();
         }
     }
@@ -39,29 +39,31 @@ public class PlayerMovement : MonoBehaviour
             lastMoveDirection = moveDirection;
         }       
 
-        if (moveDirection.x == 1.00) {
-            interactUp.SetActive(false);
-            interactDown.SetActive(false);
-            interactLeft.SetActive(false);
-            interactRight.SetActive(true);
-        }
-        if (moveDirection.x == -1.00) {
-            interactUp.SetActive(false);
-            interactDown.SetActive(false);
-            interactLeft.SetActive(true);
-            interactRight.SetActive(false);
-        }
-        if (moveDirection.y == 1.00) {
-            interactUp.SetActive(true);
-            interactDown.SetActive(false);
-            interactLeft.SetActive(false);
-            interactRight.SetActive(false);
-        }
-        if (moveDirection.y == -1.00) {
-            interactUp.SetActive(false);
-            interactDown.SetActive(true);
-            interactLeft.SetActive(false);
-            interactRight.SetActive(false);
+        if (!DialogCanvas.Instance.IsDialogShowing() && !isMovementSuspended) {
+            if (moveDirection.x == 1.00) {
+                interactUp.SetActive(false);
+                interactDown.SetActive(false);
+                interactLeft.SetActive(false);
+                interactRight.SetActive(true);
+            }
+            if (moveDirection.x == -1.00) {
+                interactUp.SetActive(false);
+                interactDown.SetActive(false);
+                interactLeft.SetActive(true);
+                interactRight.SetActive(false);
+            }
+            if (moveDirection.y == 1.00) {
+                interactUp.SetActive(true);
+                interactDown.SetActive(false);
+                interactLeft.SetActive(false);
+                interactRight.SetActive(false);
+            }
+            if (moveDirection.y == -1.00) {
+                interactUp.SetActive(false);
+                interactDown.SetActive(true);
+                interactLeft.SetActive(false);
+                interactRight.SetActive(false);
+            }
         }
 
         moveDirection = new Vector2(moveX, moveY);
@@ -77,15 +79,33 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Animate() {
-        anim.SetFloat("MoveX", moveDirection.x);
-        anim.SetFloat("MoveY", moveDirection.y);
-        anim.SetFloat("MoveMagnitude", moveDirection.magnitude);
-        anim.SetFloat("LastMoveX", lastMoveDirection.x);
-        anim.SetFloat("LastMoveY", lastMoveDirection.y);
+        if (!DialogCanvas.Instance.IsDialogShowing() && !isMovementSuspended) {
+            anim.SetFloat("MoveX", moveDirection.x);
+            anim.SetFloat("MoveY", moveDirection.y);
+            anim.SetFloat("MoveMagnitude", moveDirection.magnitude);
+            anim.SetFloat("LastMoveX", lastMoveDirection.x);
+            anim.SetFloat("LastMoveY", lastMoveDirection.y);
+        } else {
+            anim.SetFloat("MoveX", 0);
+            anim.SetFloat("MoveY", 0);
+            anim.SetFloat("MoveMagnitude", 0);
+        }
     }
 
     public void PushUpwards()
     {
         rb.position =  new Vector2(rb.position.x, rb.position.y + 2);
+    }
+
+    public void SetElectrocution(bool isBeingElectrocuted)
+    {
+        anim.SetBool("isBeingElectrocuted", isBeingElectrocuted);
+    }
+
+    public void SetSuspendMovement(bool isSuspended)
+    {
+        isMovementSuspended = isSuspended;
+        anim.SetFloat("LastMoveX", 0);
+        anim.SetFloat("LastMoveY", -1.0f);
     }
 }

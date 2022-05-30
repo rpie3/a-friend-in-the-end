@@ -5,6 +5,8 @@ using UnityEngine;
 namespace CharacterDeath {
     public class LevelManager : MonoBehaviour
     {
+        [SerializeField] public bool isPlayerDead;
+
         void Start()
         {
             DialogCanvas.Instance.QueueDialog("(Today's the big day!)");    
