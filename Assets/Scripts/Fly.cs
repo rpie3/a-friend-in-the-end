@@ -22,7 +22,7 @@ public class Fly : MonoBehaviour, IInteractable
                 {
                     DialogCanvas.Instance.QueueDialog("(Man, this thing is huge!)");
                     DialogCanvas.Instance.QueueDialog("(The spiders should be happy now!)");
-                    DialogCanvas.Instance.SetOnAllDialogDismissed(StartSpiderCutScene);
+                    DialogCanvas.Instance.SetOnAllDialogDismissed(OnLastFly);
                 }
                 else
                 {
@@ -40,22 +40,8 @@ public class Fly : MonoBehaviour, IInteractable
         }
     }
 
-    public void StartSpiderCutScene()
+    public void OnLastFly()
     {
-        spiderCam.SetActive(true);
-        StartCoroutine(SpiderDialogue());
-    }
-
-    IEnumerator SpiderDialogue()
-    {
-        yield return new WaitForSeconds(2);
-        DialogCanvas.Instance.QueueDialog("Thanks for feeding the spiders!");
-        DialogCanvas.Instance.SetOnAllDialogDismissed(OnSpiderCutSceneEnd);
-    }
-
-    public void OnSpiderCutSceneEnd()
-    {
-        spiderCam.SetActive(false);
         gameObject.SetActive(false);
     }
 

@@ -55,6 +55,7 @@ namespace Kitchen {
 
         public void AfterSandwichDelivery()
         {
+            MusicManager.Instance.UnPauseHouse();
             GameController.control.reaperHasReceivedSandwich = true;
             completedSandwich.SetActive(false);
             reaper.SetActive(false);

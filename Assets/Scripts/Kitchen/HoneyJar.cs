@@ -8,10 +8,12 @@ public class HoneyJar : MonoBehaviour, IInteractable
     {
         if (GameController.control.sweepablesCompleted) {
             GameController.control.playerHasJar = true;
+            MusicManager.Instance.PauseHouse();
             GameController.control.foundItemSource.Play();
             DialogCanvas.Instance.QueueDialog("YOU GOT THE JAR OF HONEY.");
             DialogCanvas.Instance.QueueDialog("(There's already some flies stuck in here.)");
             DialogCanvas.Instance.QueueDialog("(Gross...)");
+            DialogCanvas.Instance.SetOnAllDialogDismissed(MusicManager.Instance.UnPauseHouse);
             gameObject.SetActive(false);
         } else {
             DialogCanvas.Instance.QueueDialog("(This jar of honey has some flies stuck in it.)");

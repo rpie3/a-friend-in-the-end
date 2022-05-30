@@ -12,8 +12,10 @@ public class SandwichBase : MonoBehaviour, IInteractable
             GameController.control.sandwichIngredientsCollected && 
             !GameController.control.playerHasSandwich
         ) {
+            MusicManager.Instance.PauseHouse();
             GameController.control.foundItemSource.Play();
             DialogCanvas.Instance.QueueDialog("YOU GOT THE SANDWICH.");
+            DialogCanvas.Instance.SetOnAllDialogDismissed(MusicManager.Instance.UnPauseHouse);
             levelManager.OnSandwichAssembled();
         } 
         else 
