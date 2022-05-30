@@ -12,7 +12,17 @@ namespace Bedroom {
             {   
                 GameController.control.lastScene = "Bedroom";
                 SceneManager.LoadScene(sceneName: "MainRoom");
+                MusicManager.Instance.FadeReaper();
+                MusicManager.Instance.FadeInHouseWithIntro();
+                MusicManager.Instance.FadeInHouseNoIntro();
             }
+        }
+
+        void Start()
+        {
+            MusicManager.Instance.FadeHouseWithIntro();
+            MusicManager.Instance.FadeHouseNoIntro();
+            MusicManager.Instance.PlayReaper();
         }
     }
 }
