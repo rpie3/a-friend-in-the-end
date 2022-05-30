@@ -49,10 +49,12 @@ namespace EtherealRoad {
         {
             yield return new WaitForSeconds(1);
             reaper.SetActive(true);
-
-            DialogCanvas.Instance.QueueDialog("Oh hey... Didn't realize I was supposed to come get you... etc...");
-            DialogCanvas.Instance.QueueDialog("Thanks for doing that... Haven't felt like myself in a while... etc...");
-            DialogCanvas.Instance.QueueDialog("Come on in if you want...");
+            DialogCanvas.Instance.QueueDialog("Oh...hello. Thanks for watering my flowers.");
+            DialogCanvas.Instance.QueueDialog("I'm the grim reaper, but...");
+            DialogCanvas.Instance.QueueDialog("I've been a little depressed lately.");
+            DialogCanvas.Instance.QueueDialog("That's why I didn't come to get you after you died.");
+            DialogCanvas.Instance.QueueDialog("Things are kind of falling apart around here.");
+            DialogCanvas.Instance.QueueDialog("It'd be nice to have some help...");
             DialogCanvas.Instance.SetOnAllDialogDismissed(AfterReaperIntro);
         }
 
@@ -66,6 +68,7 @@ namespace EtherealRoad {
         private void spawnPlayerOutsideFrontDoor()
         {
             player.transform.position = new Vector2(frontDoor.transform.position.x, frontDoor.transform.position.y - 2);
+            
         }
 
         private void spawnPlayerAndReaperByGate()
@@ -76,6 +79,8 @@ namespace EtherealRoad {
             gate.SetActive(false);
             GameController.control.lastScene = "EtherealRoad";
             GameController.control.reaperHasOpenedGate = true;
+            DialogCanvas.Instance.QueueDialog("Well, here we are! You're free to pass through to dimensions unknown.");
+            DialogCanvas.Instance.QueueDialog("Unless you felt like staying a little longer...");
         }
 
         void Start()
@@ -103,7 +108,7 @@ namespace EtherealRoad {
             }
             else 
             {
-                DialogCanvas.Instance.QueueDialog("(I think I just died!)");
+                DialogCanvas.Instance.QueueDialog("(Whoa, that was weird.)");
                 DialogCanvas.Instance.QueueDialog("(Where am I?)");
             }
         }

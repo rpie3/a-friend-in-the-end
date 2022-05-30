@@ -20,12 +20,12 @@ public class PottedFlower : MonoBehaviour, IInteractable
         } 
         else if (animator.GetBool("hasBeenWatered"))
         {
-            DialogCanvas.Instance.QueueDialog("I've never seen plants with teeth before...");
+            DialogCanvas.Instance.QueueDialog("(Plants with teeth? Spooky!)");
            
         }
         else 
         {
-            DialogCanvas.Instance.QueueDialog("Seems like they haven't been watered in a while...");
+            DialogCanvas.Instance.QueueDialog("(Looks like they could use some water.)");
         }
     }
 

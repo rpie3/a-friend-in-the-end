@@ -8,7 +8,7 @@ public class WateringCan : MonoBehaviour, IInteractable
     {
         GameController.control.playerHasWateringCan = true;
         GameController.control.foundItemSource.Play();
-        DialogCanvas.Instance.QueueDialog("I picked up a WATERING CAN!");
+        DialogCanvas.Instance.QueueDialog("YOU GOT THE WATERING CAN.");
         gameObject.SetActive(false);
     }
 

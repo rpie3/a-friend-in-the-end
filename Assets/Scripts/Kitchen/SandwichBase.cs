@@ -13,12 +13,13 @@ public class SandwichBase : MonoBehaviour, IInteractable
             !GameController.control.playerHasSandwich
         ) {
             GameController.control.foundItemSource.Play();
-            DialogCanvas.Instance.QueueDialog("I've assembled a NICE SANDWICH!");
+            DialogCanvas.Instance.QueueDialog("YOU GOT THE SANDWICH.");
             levelManager.OnSandwichAssembled();
         } 
         else 
         {
-            DialogCanvas.Instance.QueueDialog("I bet Mr. Reaper could use a sandwich... If I can just find some ingredients...");
+            DialogCanvas.Instance.QueueDialog("(I bet a sandwich would cheer him up.)");
+            DialogCanvas.Instance.QueueDialog("(But I'll need some more ingredients...)");
         }
     }
 

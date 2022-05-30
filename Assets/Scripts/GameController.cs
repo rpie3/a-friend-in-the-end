@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
 
         if (SecondToLastFlyCaught())
         {
-            DialogCanvas.Instance.QueueDialog("If you can get one more, the spiders should have enough to eat...");
+            DialogCanvas.Instance.QueueDialog("(If I can find just one more...)");
         }
 
         if (dictionaryKey == "last")

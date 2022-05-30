@@ -36,7 +36,8 @@ namespace SunRoom {
             yield return new WaitForSeconds(2);
             reaper.SetActive(true);
 
-            DialogCanvas.Instance.QueueDialog("Thanks for watering my more exotic plants... They love the attention...");
+            DialogCanvas.Instance.QueueDialog("Thanks for watering my plants!");
+            DialogCanvas.Instance.QueueDialog("...but watch those fingers. Heh heh heh...");
             DialogCanvas.Instance.SetOnAllDialogDismissed(ReaperLeaves);
         }
 

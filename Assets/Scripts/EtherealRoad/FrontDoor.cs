@@ -28,7 +28,8 @@ namespace EtherealRoad {
             else
             {
                 doorKnockSource.Play();
-                DialogCanvas.Instance.QueueDialog("The door is locked.");
+                DialogCanvas.Instance.QueueDialog("(It's locked.)");
+                DialogCanvas.Instance.QueueDialog("(But I can hear someone inside...)");
             }
         }
     }

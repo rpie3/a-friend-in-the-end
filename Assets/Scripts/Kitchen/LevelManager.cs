@@ -28,11 +28,11 @@ namespace Kitchen {
                 GameController.control.sandwichIngredientsCollected == false
             ) {
                 GameController.control.sandwichIngredientsCollected = true;
-                DialogCanvas.Instance.QueueDialog("This should be enough good stuff to make a  NICE SANDWICH!");
+                DialogCanvas.Instance.QueueDialog("(I've got everything I need for a great sandwich!)");
             } 
             else 
             {
-                DialogCanvas.Instance.QueueDialog("I found an ingredient to make a NICE SANDWICH!");
+                DialogCanvas.Instance.QueueDialog("(This would go great in a sandwich!)");
             }
         }
         
@@ -49,7 +49,7 @@ namespace Kitchen {
             yield return new WaitForSeconds(2);
             reaper.SetActive(true);
 
-            DialogCanvas.Instance.QueueDialog("Oh wow! You made that for me? Thanks!");
+            DialogCanvas.Instance.QueueDialog("Wow! You made that just for me? Thanks!");
             DialogCanvas.Instance.SetOnAllDialogDismissed(AfterSandwichDelivery);
         }
 

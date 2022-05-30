@@ -13,15 +13,16 @@ public class Fly : MonoBehaviour, IInteractable
             GameController.control.playerHasJar 
             && !GameController.control.flyTracker[dictionaryKey]
         ) {
-            DialogCanvas.Instance.QueueDialog("I caught a fly!");
+            DialogCanvas.Instance.QueueDialog("(I caught a fly!)");
             GameController.control.onFlyCaught(dictionaryKey);
 
             if (dictionaryKey == "last")
             {
                 if (spiderCam != null)
                 {
-                    spiderCam.SetActive(true);
-                    StartCoroutine(SpiderDialogue());
+                    DialogCanvas.Instance.QueueDialog("(Man, this thing is huge!)");
+                    DialogCanvas.Instance.QueueDialog("(The spiders should be happy now!)");
+                    DialogCanvas.Instance.SetOnAllDialogDismissed(StartSpiderCutScene);
                 }
                 else
                 {
@@ -35,8 +36,14 @@ public class Fly : MonoBehaviour, IInteractable
         } 
         else 
         {
-            DialogCanvas.Instance.QueueDialog("A fly? Buzz off!");
+            DialogCanvas.Instance.QueueDialog("(I don't have anything to catch it with!)");
         }
+    }
+
+    public void StartSpiderCutScene()
+    {
+        spiderCam.SetActive(true);
+        StartCoroutine(SpiderDialogue());
     }
 
     IEnumerator SpiderDialogue()
