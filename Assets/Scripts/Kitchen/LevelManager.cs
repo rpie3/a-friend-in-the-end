@@ -7,7 +7,9 @@ namespace Kitchen {
     {
         [Header("GameObject References")]
         [SerializeField] public GameObject reaper;
+        [SerializeField] public GameObject reaperCam;
         [SerializeField] public GameObject sandwich;
+        [SerializeField] public GameObject completedSandwich;
         
         [Header("Ingredient Tracking")]
         [SerializeField] public int numberIngredientsNeeded = 3;
@@ -36,6 +38,9 @@ namespace Kitchen {
         
         public void OnSandwichAssembled()
         {
+            sandwich.SetActive(false);
+            reaperCam.SetActive(true);
+            completedSandwich.SetActive(true);
             StartCoroutine(InitiateReaperAppearance());
         }
 
@@ -45,15 +50,15 @@ namespace Kitchen {
             reaper.SetActive(true);
 
             DialogCanvas.Instance.QueueDialog("Oh wow! You made that for me? Thanks!");
-            GameController.control.reaperHasReceivedSandwich = true;
-            sandwich.SetActive(false);
-            StartCoroutine(ReaperLeave());
+            DialogCanvas.Instance.SetOnAllDialogDismissed(AfterSandwichDelivery);
         }
 
-        IEnumerator ReaperLeave()
+        public void AfterSandwichDelivery()
         {
-            yield return new WaitForSeconds(2);
+            GameController.control.reaperHasReceivedSandwich = true;
+            completedSandwich.SetActive(false);
             reaper.SetActive(false);
+            reaperCam.SetActive(false);
         }
     }
 }

@@ -158,11 +158,17 @@ EdgeCollider2D:
   m_Points:
   - {x: 3.0075307, y: 8.345604}
   - {x: 2.9315457, y: 13.297596}
-  - {x: -3.0084572, y: 13.305012}
+  - {x: -1.5393398, y: 13.288406}
+  - {x: -1.9150329, y: 14.096225}
+  - {x: -3.0385993, y: 14.103785}
   - {x: -3.0510125, y: 14.870485}
   - {x: -5.0992904, y: 14.844159}
-  - {x: -5.104039, y: 13.293129}
-  - {x: -10.317202, y: 13.280592}
+  - {x: -5.088981, y: 14.129517}
+  - {x: -6.112908, y: 14.129684}
+  - {x: -6.24945, y: 13.293129}
+  - {x: -9.210642, y: 13.311961}
+  - {x: -9.428001, y: 14.094437}
+  - {x: -10.340082, y: 14.163347}
   - {x: -10.298487, y: 15.89561}
   - {x: -12.090321, y: 15.913731}
   - {x: -12.056368, y: 10.250126}
@@ -3833,6 +3839,7 @@ GameObject:
   - component: {fileID: 1663322375}
   - component: {fileID: 1663322374}
   - component: {fileID: 1663322377}
+  - component: {fileID: 1663322378}
   m_Layer: 0
   m_Name: fireplace-animated-fire_0
   m_TagString: Untagged
@@ -3940,6 +3947,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b20c4e546cb4c199089c7057111f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1663322378
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663322373}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.045213223, y: -0.32403088}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2464399, y: 1.3519382}
+  m_EdgeRadius: 0
 --- !u!1 &1691570978
 GameObject:
   m_ObjectHideFlags: 0

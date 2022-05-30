@@ -12,7 +12,7 @@ public class PlayerInteractionZone : MonoBehaviour
         
         if (interactable != null) 
         {
-            // Debug.Log("Can interact with: " + other.name);          
+            Debug.Log("Can interact with: " + other.name);          
             interactable.ShowHint();
         }
         
