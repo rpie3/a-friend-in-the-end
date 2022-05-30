@@ -27,7 +27,7 @@ public class LightPost : MonoBehaviour, IInteractable
         // {
         //     DialogCanvas.Instance.QueueDialog("(Yeah, right. Like I'm going to do that again.)");
         // }
-
+        StartCoroutine(AfterElectrocution());
         interactionHint.SetActive(false);
 
         // TODO play zapping animation
@@ -36,6 +36,12 @@ public class LightPost : MonoBehaviour, IInteractable
         electrocutionSfxSource.Play();
         
         electrocutionSource.PlayDelayed(electrocutionSfxSource.clip.length);
+        DialogCanvas.Instance.QueueDialog("(!)");
+    }
+
+    IEnumerator AfterElectrocution()
+    {
+        yield return new WaitForSeconds(3);
 
         // TODO show or instantiate dead player sprite
         deadPlayer.SetActive(true);
@@ -48,7 +54,6 @@ public class LightPost : MonoBehaviour, IInteractable
         DialogCanvas.Instance.SetOnAllDialogDismissed(OnDeathComplete);
 
         portal.SetActive(true);
-        
     }
 
     public void OnDeathComplete()
