@@ -6,6 +6,8 @@ namespace SunRoom {
     public class LevelManager : MonoBehaviour
     {
         [Header("GameObject References")]
+        [SerializeField] public GameObject reaper;
+        [SerializeField] public GameObject reaperCam;
         
         [Header("Flower Tracking")]
         [SerializeField] public int numberOfFlowersToWater = 1;
@@ -24,8 +26,24 @@ namespace SunRoom {
                 GameController.control.indoorFlowersWatered == false
             ) {
                 GameController.control.indoorFlowersWatered = true;
-                DialogCanvas.Instance.QueueDialog("Thanks for watering my more exotic plants... They love the attention...");
+                reaperCam.SetActive(true);
+                StartCoroutine(InitiateReaperAppearance());
             }
+        }
+
+        IEnumerator InitiateReaperAppearance()
+        {
+            yield return new WaitForSeconds(2);
+            reaper.SetActive(true);
+
+            DialogCanvas.Instance.QueueDialog("Thanks for watering my more exotic plants... They love the attention...");
+            DialogCanvas.Instance.SetOnAllDialogDismissed(ReaperLeaves);
+        }
+
+        public void ReaperLeaves()
+        {
+            reaper.SetActive(false);
+            reaperCam.SetActive(false);
         }
 
         void Start()

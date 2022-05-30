@@ -43,6 +43,7 @@ public class Flowers : MonoBehaviour, IInteractable
     {
         if (GameController.control.outdoorFlowersWatered)
         {
+            animator.SetBool("hasBeenWatered", true);
             int hash = Animator.StringToHash("Watered");
             animator.Play(hash, 0, 1.0f);
         }

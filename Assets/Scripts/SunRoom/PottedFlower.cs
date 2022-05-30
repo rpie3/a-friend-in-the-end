@@ -12,17 +12,17 @@ public class PottedFlower : MonoBehaviour, IInteractable
     {
         if (
             GameController.control.playerHasWateringCan 
-            // && !animator.GetBool("hasBeenWatered")
+            && !animator.GetBool("hasBeenWatered")
         ) {
-            // animator.SetBool("hasBeenWatered", true);
+            animator.SetBool("hasBeenWatered", true);
             growSource.Play();
             levelManager.OnFlowerWatered();
         } 
-        // else if (animator.GetBool("hasBeenWatered"))
-        // {
-        //     DialogCanvas.Instance.QueueDialog("They're looking great now!");
-        //    
-        // }
+        else if (animator.GetBool("hasBeenWatered"))
+        {
+            DialogCanvas.Instance.QueueDialog("I've never seen plants with teeth before...");
+           
+        }
         else 
         {
             DialogCanvas.Instance.QueueDialog("Seems like they haven't been watered in a while...");
@@ -44,8 +44,9 @@ public class PottedFlower : MonoBehaviour, IInteractable
     {
         if (GameController.control.indoorFlowersWatered)
         {
-            // int hash = Animator.StringToHash("Watered");
-            // animator.Play(hash, 0, 1.0f);
+            animator.SetBool("hasBeenWatered", true);
+            int hash = Animator.StringToHash("Watered");
+            animator.Play(hash, 0, 1.0f);
         }
     }
 }

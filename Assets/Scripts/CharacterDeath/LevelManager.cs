@@ -7,6 +7,7 @@ namespace CharacterDeath {
     {
         void Start()
         {
+            DialogCanvas.Instance.QueueDialog("(I better hurry! I'm going to be late!)");    
             MusicManager.Instance.PlayGrasslandTheme();
         }
     }

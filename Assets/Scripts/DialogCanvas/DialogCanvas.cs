@@ -10,6 +10,14 @@ public class DialogCanvas : MonoBehaviour
 
     [SerializeField] List<string> dialogQueue = new List<string>(); 
 
+    public delegate void OnAllDialogDismissed();
+    public OnAllDialogDismissed onDismiss;
+
+    public void SetOnAllDialogDismissed(OnAllDialogDismissed callback)
+    {
+        onDismiss = callback;
+    }
+
     public void QueueDialog(string newDialog)
     {
         if (dialogQueue.Count > 0) 
@@ -62,6 +70,11 @@ public class DialogCanvas : MonoBehaviour
             if (dialogQueue.Count == 0 && IsDialogShowing())
             {
                 dialogBox.closeDialog();
+                if (onDismiss != null)
+                {
+                    onDismiss();
+                    onDismiss = null;
+                }
             }
         }
     }
