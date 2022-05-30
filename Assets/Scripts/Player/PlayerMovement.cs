@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb;
-    // public Animator anim;
+    public Animator anim;
     private Vector2 moveDirection;
     private Vector2 lastMoveDirection;
     PixelPerfectClamp clamper = new PixelPerfectClamp();
 
-    // live interaction zone switching
+    [Header("Interaction Zones")]
     [SerializeField] GameObject interactUp;
     [SerializeField] GameObject interactDown;
     [SerializeField] GameObject interactLeft;
@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        ProcessInputs();
-        Animate();
+        if (!DialogCanvas.Instance.IsDialogShowing()) {
+            ProcessInputs();
+            Animate();
+        }
     }
 
     void FixedUpdate() {
@@ -75,11 +77,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Animate() {
-        // anim.SetFloat("AnimMoveX", moveDirection.x);
-        // anim.SetFloat("AnimMoveY", moveDirection.y);
-        // anim.SetFloat("AnimMoveMagnitude", moveDirection.magnitude);
-        // anim.SetFloat("AnimLastMoveX", lastMoveDirection.x);
-        // anim.SetFloat("AnimLastMoveY", lastMoveDirection.y);
+        anim.SetFloat("MoveX", moveDirection.x);
+        anim.SetFloat("MoveY", moveDirection.y);
+        anim.SetFloat("MoveMagnitude", moveDirection.magnitude);
+        anim.SetFloat("LastMoveX", lastMoveDirection.x);
+        anim.SetFloat("LastMoveY", lastMoveDirection.y);
     }
 
     public void PushUpwards()
