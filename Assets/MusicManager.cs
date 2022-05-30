@@ -65,6 +65,16 @@ public class MusicManager : MonoBehaviour
         tunnelSource.Play();
     }
 
+    public void PauseTunnel()
+    {
+        tunnelSource.Pause();
+    }
+
+    public void UnPauseTunnel()
+    {
+        tunnelSource.UnPause();
+    }
+
     public void FadeTunnel()
     {
         IEnumerator fadeOut = FadeOut(tunnelSource, 0.5f);
@@ -80,6 +90,18 @@ public class MusicManager : MonoBehaviour
         FadeTunnel();
         houseSourceWithIntro.Play();
         houseSourceNoIntro.PlayDelayed(houseSourceWithIntro.clip.length);
+    }
+
+     public void PauseHouse()
+    {
+        houseSourceWithIntro.Pause();
+        houseSourceNoIntro.Pause();
+    }
+
+    public void UnPauseHouse()
+    {
+        houseSourceWithIntro.UnPause();
+        houseSourceNoIntro.UnPause();
     }
 
     public bool IsHouseMusicPlaying()
@@ -98,6 +120,20 @@ public class MusicManager : MonoBehaviour
         IEnumerator fadeOut = FadeOut(houseSourceNoIntro, 0.5f);
         StartCoroutine(fadeOut);
     }
+
+    [Header("SFX")]
+    [SerializeField] AudioSource warpOutSource;
+    [SerializeField] AudioSource warpInSource;
+
+    public void PlayWarpOut()
+    {
+        warpOutSource.Play();
+    }
+
+    public void PlayWarpIn()
+    {
+        warpInSource.Play();
+    }   
 
     public static IEnumerator FadeOut (AudioSource audioSource, float FadeTime) {
         float startVolume = audioSource.volume;

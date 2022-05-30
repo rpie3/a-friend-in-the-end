@@ -63,6 +63,7 @@ namespace EtherealRoad {
             GameController.control.playerHasMetReaper = true;
             frontDoor.isFrontDoorLocked = false;
             reaper.SetActive(false);
+            houseCam.SetActive(false);
         }
 
         private void spawnPlayerOutsideFrontDoor()

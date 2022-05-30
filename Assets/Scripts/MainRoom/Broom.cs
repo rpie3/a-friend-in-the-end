@@ -7,8 +7,10 @@ public class Broom : MonoBehaviour, IInteractable
     public void Interact()
     {
         GameController.control.playerHasBroom = true;
+        MusicManager.Instance.PauseHouse();
         GameController.control.foundItemSource.Play();
         DialogCanvas.Instance.QueueDialog("YOU GOT THE BROOM.");
+        DialogCanvas.Instance.SetOnAllDialogDismissed(MusicManager.Instance.UnPauseHouse);
         gameObject.SetActive(false);
     }
 

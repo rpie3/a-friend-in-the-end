@@ -8,6 +8,7 @@ public class LightPost : MonoBehaviour, IInteractable
     [SerializeField] SpriteRenderer playerSpriteRenderer;
     [SerializeField] GameObject deadPlayer;
     [SerializeField] GameObject portal;
+    [SerializeField] AudioSource electrocutionSfxSource;
     [SerializeField] AudioSource electrocutionSource;
 
     public void ShowHint()
@@ -32,7 +33,9 @@ public class LightPost : MonoBehaviour, IInteractable
         // TODO play zapping animation
         MusicManager.Instance.FadeGrasslandTheme();
         MusicManager.Instance.FadeGrasslandThemeLoop();
-        electrocutionSource.Play();
+        electrocutionSfxSource.Play();
+        
+        electrocutionSource.PlayDelayed(electrocutionSfxSource.clip.length);
 
         // TODO show or instantiate dead player sprite
         deadPlayer.SetActive(true);
@@ -42,23 +45,14 @@ public class LightPost : MonoBehaviour, IInteractable
 
         DialogCanvas.Instance.QueueDialog("(Guess that wasn't the safe thing to do after all.)");
         DialogCanvas.Instance.QueueDialog("(I think I'm dead, but now where am I supposed to go?)");
-        
-        // TODO portal appears
-        StartCoroutine(InitiatePortalAppearance());
+        DialogCanvas.Instance.SetOnAllDialogDismissed(OnDeathComplete);
 
-        StartCoroutine(WaitForElectrocutionSound());
-        
-    }
-
-    IEnumerator InitiatePortalAppearance()
-    {
-        yield return new WaitForSeconds(5);
         portal.SetActive(true);
+        
     }
 
-    IEnumerator WaitForElectrocutionSound()
+    public void OnDeathComplete()
     {
-        yield return new WaitForSeconds(5);
         MusicManager.Instance.PlayGrasslandThemeDead();
     }
 }
