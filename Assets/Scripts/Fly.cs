@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fly : MonoBehaviour, IInteractable
 {
     [SerializeField] private string dictionaryKey;
+    [SerializeField] public GameObject spiderCam;
     
     public void Interact()
     {
@@ -14,11 +15,22 @@ public class Fly : MonoBehaviour, IInteractable
         ) {
             DialogCanvas.Instance.QueueDialog("I caught a fly!");
             GameController.control.onFlyCaught(dictionaryKey);
-            gameObject.SetActive(false);
 
             if (dictionaryKey == "last")
             {
-                DialogCanvas.Instance.QueueDialog("Thanks for feeding the spiders!");
+                if (spiderCam != null)
+                {
+                    spiderCam.SetActive(true);
+                    StartCoroutine(SpiderDialogue());
+                }
+                else
+                {
+                    DialogCanvas.Instance.QueueDialog("Thanks for feeding the spiders!");
+                }
+            }
+            else
+            {
+                gameObject.SetActive(false);
             }
         } 
         else 
@@ -26,6 +38,20 @@ public class Fly : MonoBehaviour, IInteractable
             DialogCanvas.Instance.QueueDialog("A fly? Buzz off!");
         }
     }
+
+    IEnumerator SpiderDialogue()
+    {
+        yield return new WaitForSeconds(2);
+        DialogCanvas.Instance.QueueDialog("Thanks for feeding the spiders!");
+        DialogCanvas.Instance.SetOnAllDialogDismissed(OnSpiderCutSceneEnd);
+    }
+
+    public void OnSpiderCutSceneEnd()
+    {
+        spiderCam.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
     public void ShowHint()
     {
 
