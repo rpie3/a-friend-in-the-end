@@ -20,11 +20,11 @@ public class Flowers : MonoBehaviour, IInteractable
         } 
         else if (animator.GetBool("hasBeenWatered"))
         {
-            DialogCanvas.Instance.QueueDialog("They're looking great now!");
+            DialogCanvas.Instance.QueueDialog("(They're looking great now!)");
         }
         else 
         {
-            DialogCanvas.Instance.QueueDialog("Seems like they haven't been watered in a while...");
+            DialogCanvas.Instance.QueueDialog("(Looks like they could use some water.)");
         }
     }
 

@@ -8,7 +8,14 @@ public class Street : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DialogCanvas.Instance.QueueDialog("(I can't cross here!)");
+            DialogCanvas.Instance.QueueDialog("(Crossing here could be dangerous.)");
+            DialogCanvas.Instance.QueueDialog("(I should find a crosswalk.)");
+
+            // if (dead)
+            // {
+            //     DialogCanvas.Instance.QueueDialog("(Technically, I've already crossed over.)");
+            //     DialogCanvas.Instance.QueueDialog("(So what's the point?)");
+            // }
         }
     }
 }

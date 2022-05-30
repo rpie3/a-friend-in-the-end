@@ -27,7 +27,7 @@ public class Cobweb : MonoBehaviour, IInteractable
         // }
         else 
         {
-            DialogCanvas.Instance.QueueDialog("Seems like nobody has swept up in a while...");
+            DialogCanvas.Instance.QueueDialog("(This room could really stand a sweeping...)");
         }
     }
     public void ShowHint()

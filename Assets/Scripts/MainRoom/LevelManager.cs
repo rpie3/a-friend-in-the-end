@@ -40,8 +40,15 @@ namespace MainRoom {
 
         IEnumerator SpiderDialogue()
         {
-            yield return new WaitForSeconds(3);
-            DialogCanvas.Instance.QueueDialog("Thanks for cleaning, but... You swept up all the webs... Now how will the spiders eat?");
+            yield return new WaitForSeconds(2);
+            DialogCanvas.Instance.QueueDialog("Thanks for sweeping up, but...");
+            DialogCanvas.Instance.QueueDialog("The spiders can't catch any flies without their webs.");
+            DialogCanvas.Instance.QueueDialog("Do you think you can catch some?");
+            DialogCanvas.Instance.SetOnAllDialogDismissed(OnSpiderCutSceneEnd);   
+        }
+
+        public void OnSpiderCutSceneEnd()
+        {
             spiderCam.SetActive(false);
         }
 
@@ -72,6 +79,12 @@ namespace MainRoom {
 
         void Start()
         {
+            // if (firstTimeIn)
+            // {
+                DialogCanvas.Instance.QueueDialog("Feel free to make yourself at home.");
+                DialogCanvas.Instance.QueueDialog("Sorry about the mess...");
+            // }
+
             if (!MusicManager.Instance.IsHouseMusicPlaying())
             {
                 MusicManager.Instance.PlayHouse();      

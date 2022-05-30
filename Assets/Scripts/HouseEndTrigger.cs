@@ -16,7 +16,8 @@ public class HouseEndTrigger : MonoBehaviour
             GameController.control.fliesCompleted &&
             GameController.control.reaperHasOpenedGate
         ) {   
-            DialogCanvas.Instance.QueueDialog("You don't want to pass on? You want to stay and hang out with me? That's so great!!!");
+            DialogCanvas.Instance.QueueDialog("Oh, you want to stay and hang out? That's great!");
+            DialogCanvas.Instance.QueueDialog("I'll make us some sandwiches! I hope you like fly honey...");
             StartCoroutine(EndGame());
         }
     }

@@ -22,6 +22,11 @@ public class LightPost : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        // if (dead) 
+        // {
+        //     DialogCanvas.Instance.QueueDialog("(Yeah, right. Like I'm going to do that again.)");
+        // }
+
         interactionHint.SetActive(false);
 
         // TODO play zapping animation
@@ -34,6 +39,9 @@ public class LightPost : MonoBehaviour, IInteractable
 
         // TODO change player sprite to ghost
         playerSpriteRenderer.color = Color.blue;
+
+        DialogCanvas.Instance.QueueDialog("(Guess that wasn't the safe thing to do after all.)");
+        DialogCanvas.Instance.QueueDialog("(I think I'm dead, but now where am I supposed to go?)");
         
         // TODO portal appears
         StartCoroutine(InitiatePortalAppearance());

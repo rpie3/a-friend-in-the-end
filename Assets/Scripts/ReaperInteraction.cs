@@ -14,12 +14,15 @@ public class ReaperInteraction : MonoBehaviour, IInteractable
             GameController.control.reaperHasReceivedSandwich &&
             GameController.control.fliesCompleted
         ) {
-            DialogCanvas.Instance.QueueDialog("Wow, thanks for all your help! I'm sorry I've been neglecting my job. Let me help you therough the gate now.");
-            StartCoroutine(ExitHouse());
+            DialogCanvas.Instance.QueueDialog("Wow, you really helped me out!");
+            DialogCanvas.Instance.QueueDialog("Sorry I've been dropping the ball on helping dead folks.");
+            DialogCanvas.Instance.QueueDialog("Let's get you to the great beyond!");
+            DialogCanvas.Instance.SetOnAllDialogDismissed(ExitHouse);
         }
         else 
         {
-            DialogCanvas.Instance.QueueDialog("Hey there...");
+            DialogCanvas.Instance.QueueDialog("Oh...hey...");
+            DialogCanvas.Instance.QueueDialog("Sorry things are such a mess...");
         }
     }
 
@@ -33,9 +36,8 @@ public class ReaperInteraction : MonoBehaviour, IInteractable
 
     }
 
-    IEnumerator ExitHouse()
+    public void ExitHouse()
     {
-        yield return new WaitForSeconds(2);
         GameController.control.lastScene = "Bedroom";
         SceneManager.LoadScene(sceneName: "EtherealRoad");
     }
