@@ -10,6 +10,8 @@ public class EndGameTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {   
             DialogCanvas.Instance.CloseDialog();
+            MusicManager.Instance.FadeReaper();
+            MusicManager.Instance.FadeTunnel();
             SceneManager.LoadScene(sceneName: "EndCredits");
         }
     }

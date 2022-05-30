@@ -8,6 +8,7 @@ namespace MainRoom {
         [Header("GameObject References")]
         [SerializeField] public GameObject player;
         [SerializeField] public GameObject spiderCam;
+        [SerializeField] public GameObject reaper;
 
         [Header("Exit & Entrance References")]
         [SerializeField] public GameObject frontDoor;
@@ -34,6 +35,7 @@ namespace MainRoom {
             ) {
                 GameController.control.sweepablesCompleted = true;
                 spiderCam.SetActive(true);
+                reaper.SetActive(true);
                 StartCoroutine(SpiderDialogue());
             }
         }
@@ -49,6 +51,7 @@ namespace MainRoom {
 
         public void OnSpiderCutSceneEnd()
         {
+            reaper.SetActive(false);
             spiderCam.SetActive(false);
         }
 
@@ -79,18 +82,21 @@ namespace MainRoom {
 
         void Start()
         {
-            // if (firstTimeIn)
-            // {
+            if (!GameController.control.playerHasBeenGreeted)
+            {
+                spiderCam.SetActive(true);
+                reaper.SetActive(true);
                 DialogCanvas.Instance.QueueDialog("Feel free to make yourself at home.");
                 DialogCanvas.Instance.QueueDialog("Sorry about the mess...");
-            // }
+                DialogCanvas.Instance.SetOnAllDialogDismissed(OnSpiderCutSceneEnd);   
+                GameController.control.playerHasBeenGreeted = true;
+            }
 
             if (!MusicManager.Instance.IsHouseMusicPlaying())
             {
                 MusicManager.Instance.PlayHouse();      
             } 
 
-            // Debug.Log("MainRoom LevelManager shows lastScene as " + GameController.control.lastScene);
             if (GameController.control.lastScene == "EtherealRoad")
             {
                 spawnPlayerInsideFrontDoor();

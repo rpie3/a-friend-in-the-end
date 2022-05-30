@@ -88,6 +88,11 @@ public class DialogCanvas : MonoBehaviour
         }
     }
 
+    public void Open()
+    {
+        dialogBox.openDialog();
+    }
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);

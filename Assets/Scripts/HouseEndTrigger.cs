@@ -18,14 +18,17 @@ public class HouseEndTrigger : MonoBehaviour
         ) {   
             DialogCanvas.Instance.QueueDialog("Oh, you want to stay and hang out? That's great!");
             DialogCanvas.Instance.QueueDialog("I'll make us some sandwiches! I hope you like fly honey...");
-            StartCoroutine(EndGame());
+            DialogCanvas.Instance.SetOnAllDialogDismissed(EndGame);
         }
     }
 
-    IEnumerator EndGame()
+    public void EndGame()
     {
-        yield return new WaitForSeconds(3);
         DialogCanvas.Instance.CloseDialog();
+        MusicManager.Instance.FadeReaper();
+        MusicManager.Instance.FadeTunnel();
+        MusicManager.Instance.FadeHouseWithIntro();
+        MusicManager.Instance.FadeHouseNoIntro();
         SceneManager.LoadScene(sceneName: "EndCredits");
     }
 }

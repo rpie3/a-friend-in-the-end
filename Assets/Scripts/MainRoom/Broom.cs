@@ -10,6 +10,7 @@ public class Broom : MonoBehaviour, IInteractable
         MusicManager.Instance.PauseHouse();
         GameController.control.foundItemSource.Play();
         DialogCanvas.Instance.QueueDialog("YOU GOT THE BROOM.");
+        DialogCanvas.Instance.QueueDialog("(Say your prayers, dust and webs!)");
         DialogCanvas.Instance.SetOnAllDialogDismissed(MusicManager.Instance.UnPauseHouse);
         gameObject.SetActive(false);
     }

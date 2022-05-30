@@ -28,7 +28,7 @@ public class LightPost : MonoBehaviour, IInteractable
     {
         if (levelManager.isPlayerDead) 
         {
-            if (portal.active)
+            if (portal.activeSelf)
             {
                 DialogCanvas.Instance.QueueDialog("(Yeah, right. Like I'm going to do that again.)");
             }

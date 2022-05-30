@@ -74,12 +74,19 @@ namespace EtherealRoad {
 
         private void spawnPlayerAndReaperByGate()
         {
+            MusicManager.Instance.FadeReaper();
             player.transform.position = new Vector2(gate.transform.position.x - 1, gate.transform.position.y + 2);
             reaper.SetActive(true);
             reaper.transform.position = new Vector2(gate.transform.position.x + 1, gate.transform.position.y + 2);
             gate.SetActive(false);
             GameController.control.lastScene = "EtherealRoad";
-            GameController.control.reaperHasOpenedGate = true;
+            GameController.control.reaperHasOpenedGate = true;       
+            StartCoroutine(ShowDialog());     
+        }
+
+        IEnumerator ShowDialog()
+        {
+            yield return new WaitForSeconds(1);
             DialogCanvas.Instance.QueueDialog("Well, here we are! You're free to pass through to dimensions unknown.");
             DialogCanvas.Instance.QueueDialog("Unless you felt like staying a little longer...");
         }
@@ -111,6 +118,7 @@ namespace EtherealRoad {
             {
                 DialogCanvas.Instance.QueueDialog("(Whoa, that was weird.)");
                 DialogCanvas.Instance.QueueDialog("(Where am I?)");
+                DialogCanvas.Instance.QueueDialog("(I'd better take a look around.)");
             }
         }
     }

@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     [Header("Main Room Scene Data")]
     public bool playerHasBroom = false;
     public bool sweepablesCompleted = false;
+    public bool playerHasBeenGreeted = false;
 
     [Header("Sun Room Scene Data")]
     public bool indoorFlowersWatered = false;
