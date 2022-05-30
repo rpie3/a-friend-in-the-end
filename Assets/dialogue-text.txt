@@ -1,0 +1,141 @@
+--GRASSLAND--
+
+Opening text:
+(Today's the big day!)
+(I'd better hurry, don't want to be late!)
+
+Attempting to cross the street:
+(Crossing here could be dangerous.)
+(I should find a crosswalk.)
+
+After pushing the button, and after the "electrocution" music has played:
+(Guess that wasn't the safe thing to do after all.)
+(I think I'm dead, but now where am I supposed to go?)
+
+If you attempt to cross the street after dying:
+(Technically, I've already crossed over.)
+(So what's the point?)
+
+If you attempt to push the button again after dying:
+(Yeah, right. Like I'm going to do that again.)
+
+--TUNNEL--
+
+After going through the portal:
+(Whoa, that was weird.)
+(Where am I?)
+
+When attempting to breach the southern barrier early:
+(It says "DO NOT PASS.")
+
+When knocking on the door:
+(It's locked.)
+(But I can hear someone inside...)
+
+When checking out dead flowers:
+(Looks like they could use some water.)
+
+When picking up the watering can:
+YOU GOT THE WATERING CAN.
+
+After watering all of the flowers:
+Oh...hello. Thanks for watering my flowers.
+I'm the grim reaper, but...
+I've been a little depressed lately.
+That's why I didn't come to get you after you died.
+Things are kind of falling apart around here.
+It'd be nice to have some help...
+
+--INSIDE THE HOUSE--
+
+-MAIN ROOM-
+
+Initial Reaper text:
+Feel free to make yourself at home.
+Sorry about the mess...
+
+When investigating a dust pile/cobwebs:
+(This room could really stand a sweeping...)
+
+When picking up the broom:
+YOU GOT THE BROOM.
+
+After sweeping up the dust/cobwebs:
+Thanks for sweeping up, but...
+The spiders can't catch any flies without their webs.
+Do you think you can catch some?
+
+
+-KITCHEN-
+
+When checking the jar of honey:
+(This jar of honey has some flies stuck in it.)
+(*Gag*)
+
+When checking the bread:
+(I bet a sandwich would cheer him up.)
+(But I'll need some more ingredients...)
+
+When picking up lettuce/cheese/tomato:
+(This would go great in a sandwich!)
+
+When picking up the last ingredient:
+(I've got everything I need for a great sandwich!)
+
+When making the sandwich:
+YOU GOT THE SANDWICH.
+Wow! You made that just for me? Thanks!
+
+-SUNROOM-
+
+When interacting with a grown plant:
+Plants with teeth? Spooky!
+
+After watering all of the plants:
+Thanks for watering my plants!
+...but watch those fingers. Heh heh heh...
+
+-FLIES-
+
+When checking a fly without the jar:
+(I don't have anything to catch it with!)
+
+When picking up the honey jar:
+YOU GOT THE JAR OF HONEY.
+(There's already some flies stuck in here.)
+(Gross...)
+
+When catching a fly:
+(I caught a fly!)
+
+When catching the fourth fly:
+(I caught a fly!)
+(If I can find just one more...)
+
+When catching the last fly:
+(I caught a fly!)
+(Man, this thing is huge!)
+(The spiders should be happy now!)
+
+-BEDROOM-
+
+Talking to reaper:
+Oh...hey...
+Sorry things are such a mess...
+
+
+-TASKS COMPLETE-
+
+Initial Reaper text:
+Wow, you really helped me out!
+Sorry I've been dropping the ball on helping dead folks.
+Let's get you to the great beyond!
+
+Once warped to the gate:
+Well, here we are! You're free to pass through to dimensions unknown.
+Unless you felt like staying a little longer...
+
+When re-entering the house:
+Oh, you want to stay and hang out? That's great!
+I'll make us some sandwiches! I hope you like fly honey...
+
