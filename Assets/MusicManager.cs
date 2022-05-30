@@ -121,6 +121,32 @@ public class MusicManager : MonoBehaviour
         StartCoroutine(fadeOut);
     }
 
+    public void FadeInHouseWithIntro()
+    {
+        IEnumerator fadeIn = FadeIn(houseSourceWithIntro, 0.5f);
+        StartCoroutine(fadeIn);
+    }
+
+    public void FadeInHouseNoIntro()
+    {
+        IEnumerator fadeIn = FadeIn(houseSourceNoIntro, 0.5f);
+        StartCoroutine(fadeIn);
+    }
+
+    [Header("Reaper Theme")]
+    [SerializeField] AudioSource reaperThemeSource;
+
+    public void PlayReaper()
+    {
+        reaperThemeSource.Play();
+    }
+
+    public void FadeReaper()
+    {
+        IEnumerator fadeOut = FadeOut(reaperThemeSource, 0.5f);
+        StartCoroutine(fadeOut);
+    }
+
     [Header("SFX")]
     [SerializeField] AudioSource warpOutSource;
     [SerializeField] AudioSource warpInSource;
@@ -140,6 +166,19 @@ public class MusicManager : MonoBehaviour
  
         while (audioSource.volume > 0) {
             audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+ 
+            yield return null;
+        }
+ 
+        audioSource.Stop ();
+        audioSource.volume = startVolume;
+    }
+
+    public static IEnumerator FadeIn (AudioSource audioSource, float FadeTime) {
+        float startVolume = audioSource.volume;
+ 
+        while (audioSource.volume < 1) {
+            audioSource.volume += startVolume * Time.deltaTime / FadeTime;
  
             yield return null;
         }
