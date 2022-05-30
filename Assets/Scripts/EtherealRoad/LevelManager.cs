@@ -53,8 +53,11 @@ namespace EtherealRoad {
             DialogCanvas.Instance.QueueDialog("Oh hey... Didn't realize I was supposed to come get you... etc...");
             DialogCanvas.Instance.QueueDialog("Thanks for doing that... Haven't felt like myself in a while... etc...");
             DialogCanvas.Instance.QueueDialog("Come on in if you want...");
-            
-            // TODO add an on exit to dialog system for this action
+            DialogCanvas.Instance.SetOnAllDialogDismissed(AfterReaperIntro);
+        }
+
+        public void AfterReaperIntro()
+        {
             GameController.control.playerHasMetReaper = true;
             frontDoor.isFrontDoorLocked = false;
             reaper.SetActive(false);
