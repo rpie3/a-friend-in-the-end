@@ -98,6 +98,11 @@ namespace EtherealRoad {
             {
                 frontDoor.isFrontDoorLocked = false;
             }
+            else 
+            {
+                DialogCanvas.Instance.QueueDialog("(I think I just died!)");
+                DialogCanvas.Instance.QueueDialog("(Where am I?)");
+            }
         }
     }
 }

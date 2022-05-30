@@ -412,10 +412,14 @@ PolygonCollider2D:
     - - {x: -2.5625, y: 2.25}
       - {x: -3, y: 1.4375}
       - {x: -3, y: -3}
-      - {x: -0.7320461, y: -2.9998493}
-      - {x: -0.72990704, y: -1.9278946}
-      - {x: 0.66907406, y: -1.9273167}
-      - {x: 0.66711044, y: -3}
+      - {x: -1.0518084, y: -3.014721}
+      - {x: -1.0626192, y: -2.7275467}
+      - {x: -0.94334316, y: -2.578535}
+      - {x: -0.8860693, y: -1.9204597}
+      - {x: 0.8252373, y: -1.9273167}
+      - {x: 0.86103725, y: -2.6290035}
+      - {x: 0.9612713, y: -2.6836014}
+      - {x: 0.97943497, y: -3.0148716}
       - {x: 3, y: -3}
       - {x: 3, y: 1.25}
       - {x: 2.5, y: 2.25}
@@ -540,6 +544,7 @@ GameObject:
   - component: {fileID: 128042870}
   - component: {fileID: 128042869}
   - component: {fileID: 128042871}
+  - component: {fileID: 128042872}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -640,6 +645,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &128042872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128042868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a3dd89b6ea4f659693e39071fab55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &183029853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -926,7 +943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 195381848032589194, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5
+      value: 6.75
       objectReference: {fileID: 0}
     - target: {fileID: 195381848032589194, guid: ff5b94117cde94b26b2a82a2698da21f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1209,7 +1226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5385670102675274541, guid: 9f96a664f41c845c99f5f308f9f19cfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5
+      value: 6.625
       objectReference: {fileID: 0}
     - target: {fileID: 5385670102675274541, guid: 9f96a664f41c845c99f5f308f9f19cfd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2185,7 +2202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -26.5
+      value: -26.375
       objectReference: {fileID: 0}
     - target: {fileID: 3416981145810137586, guid: 7293dbe81592d40a694484c97c9805ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2430,7 +2447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061183243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.5, y: -16.5, z: 0}
+  m_LocalPosition: {x: 9.25, y: -16.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
