@@ -44,6 +44,7 @@ public class PottedFlower : MonoBehaviour, IInteractable
     {
         if (GameController.control.indoorFlowersWatered)
         {
+            animator.SetBool("hasBeenWatered", true);
             int hash = Animator.StringToHash("Watered");
             animator.Play(hash, 0, 1.0f);
         }
