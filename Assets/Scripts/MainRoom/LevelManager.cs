@@ -44,8 +44,7 @@ namespace MainRoom {
             DialogCanvas.Instance.QueueDialog("Thanks for cleaning, but...");
             DialogCanvas.Instance.QueueDialog("You swept up all the webs...");
             DialogCanvas.Instance.QueueDialog("Now how will the spiders eat?");
-            DialogCanvas.Instance.SetOnAllDialogDismissed(OnSpiderCutSceneEnd);
-            
+            DialogCanvas.Instance.SetOnAllDialogDismissed(OnSpiderCutSceneEnd);   
         }
 
         public void OnSpiderCutSceneEnd()
